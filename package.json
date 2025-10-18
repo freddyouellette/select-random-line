@@ -1,7 +1,7 @@
 {
 	"name": "obsidian-select-random-line-plugin",
-	"version": "1.0.2",
-	"description": "Obsidian plugin to select a random line within the currently selected text.",
+	"version": "1.0.3",
+	"description": "Obsidian plugin to select a random line within the current file.",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
