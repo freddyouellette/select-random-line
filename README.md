@@ -4,13 +4,21 @@
 [![Created by Freddy Ouellette](https://img.shields.io/badge/Created%20by%20Freddy%20Ouellette-gray)](https://freddyouellette.com) [![GitHub](https://img.shields.io/badge/GitHub-black?logo=github)](https://github.com/freddyouellette/obsidian-select-random-line-plugin)
 
 Adds a new command to the Obsidian Notes Application:
-  * `Select Random Line Within Selection` - Selects a random line from within your current text selection
+  * `Select Random Line` - Intelligently selects a random line based on your current context
 
 ## How to Use
 
+The plugin has two modes of operation:
+
+**Mode 1: With Selection**
 1. Select some text in your note that spans multiple lines
-2. Run the command `Select Random Line Within Selection` (you can find it in the Command Palette, assign it to a hotkey, or add it to your toolbar)
+2. Run the command `Select Random Line` (you can find it in the Command Palette, assign it to a hotkey, or add it to your toolbar)
 3. The plugin will randomly select one line from within your selection that contains text content
+
+**Mode 2: No Selection (Just Cursor)**
+1. Simply place your cursor anywhere in the document (no selection needed)
+2. Run the command `Select Random Line`
+3. The plugin will randomly select any line from the entire file that contains text content
 
 This is useful for:
 - Randomly picking items from lists
