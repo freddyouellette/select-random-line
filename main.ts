@@ -4,7 +4,7 @@ export default class SelectRandomLine extends Plugin {
 	async onload() {
 		this.addCommand({
 			id: 'select-random-line',
-			name: 'Select Random Line',
+			name: 'In Selection / File',
 			icon: 'shuffle',
 		editorCallback: (editor: Editor) => {
 			if (editor.somethingSelected()) {
@@ -41,21 +41,11 @@ export default class SelectRandomLine extends Plugin {
 				// Get the content of the selected line
 				const fullLineText = editor.getLine(actualLineNumber);
 				
-				// Calculate the selection bounds for this line
-				let lineStart = 0;
-				let lineEnd = fullLineText.length;
-				
-				// If this is the first line of selection, start from selection start
-				if (actualLineNumber === from.line) {
-					lineStart = from.ch;
-				}
-				
-				// If this is the last line of selection, end at selection end
-				if (actualLineNumber === to.line) {
-					lineEnd = to.ch;
-				}
+				// Always select the entire line, regardless of original selection boundaries
+				const lineStart = 0;
+				const lineEnd = fullLineText.length;
 
-				// Set selection to the random line
+				// Set selection to the entire random line
 				editor.setSelection(
 					{ line: actualLineNumber, ch: lineStart },
 					{ line: actualLineNumber, ch: lineEnd }
@@ -90,8 +80,6 @@ export default class SelectRandomLine extends Plugin {
 					{ line: randomLineNumber, ch: 0 },
 					{ line: randomLineNumber, ch: lineText.length }
 				);
-
-				new Notice(`Selected line ${randomLineNumber + 1} from entire file`);
 			}
 		}
 		});
